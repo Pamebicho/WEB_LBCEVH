@@ -1,0 +1,41 @@
+{
+  "subTitle": "Resuelve tus dudas frecuentes sobre nuestra institución y su proyecto educativo.",
+  "faqs": [
+    {
+      "question": "¿Cuál es el horario del Liceo?",
+      "answer": "Las puertas del colegio se abren a las 7:45 horas, momento en que los estudiantes son recibidos por sus profesores en sus respectivas salas. La jornada académica se extiende de 08:00 a 18:00 horas."
+    },
+    {
+      "question": "¿Qué niveles educativos ofrece el Liceo?",
+      "answer": "Contamos con Educación Parvularia, Enseñanza Básica y Enseñanza Media Técnico-Profesional en las modalidades Comercial e Industrial."
+    },
+    {
+      "question": "¿Cómo puedo postular a la admisión?",
+      "answer": "La postulación se efectúa mediante el Sistema de Admisión Escolar del Ministerio de Educación, disponible en www.sistemadeadmisionescolar.cl. Asimismo, el establecimiento brinda información y orientación a las familias durante el proceso de matrícula."
+    },
+    {
+      "question": "¿Qué apoyo existe para continuar estudios superiores?",
+      "answer": "El establecimiento mantiene convenios de articulación con INACAP y ENAC, que favorecen la proyección académica de sus egresados. Asimismo, participa en el programa PACE de la Universidad de Chile, destinado a acompañar y facilitar el acceso a la educación superior."
+    },
+    {
+      "question": "¿Existe Departamento de Integración Escolar (PIE)?",
+      "answer": "Sí. El establecimiento cuenta con un Programa de Integración Escolar (PIE), orientado a apoyar a estudiantes que presentan necesidades educativas especiales, favoreciendo la inclusión y la igualdad de oportunidades en el proceso de enseñanza-aprendizaje."
+    },
+    {
+      "question": "¿El Liceo cuenta con talleres extraprogramáticos?",
+      "answer": "Sí. El establecimiento ofrece talleres extraprogramáticos en diversas áreas formativas, artísticas y deportivas, destinados a complementar la formación integral de los estudiantes."
+    },
+    {
+      "question": "¿Qué constituye una emergencia que justifique retiro anticipado?",
+      "answer": "Una emergencia que justifica la interrupción de la jornada escolar de un alumno(a) es un hecho puntual, grave y/o que impida el desempeño del alumno(a) en el establecimiento. No se considera emergencia una actividad previamente planificada, o que se repetirá en el tiempo, como horas al médico, actividades extraprogramáticas o una dificultad para el traslado de los niños. Estas situaciones que no son emergencia deben resolverse previamente vía agenda, mail o teléfono."
+    },
+    {
+      "question": "¿Cómo puedo comunicarme con mi hijo/a durante la jornada escolar? ",
+      "answer": "En el caso excepcional que un apoderado(a) necesite comunicarse con su hijo(a), deberá comunicarse con secretaría al número +56229397840 y dejar mensaje. Si necesita hablar con su hijo(a) personalmente, se puede solicitar la autorización a la coordinación respectiva para gestionarlo."
+    },
+    {
+      "question": "¿Cuáles son los medios de comunicación oficiales del Liceo?",
+      "answer": "El establecimiento usa la agenda y el correo electrónico como medios para comunicarse con su comunidad. En casos que lo amerite podrá solicitarse entrevistas o reuniones extraordinarias presenciales. A su vez, el sitio web del colegio es el repositorio oficial de información del colegio, el cual es complementado por las redes sociales oficiales del colegio y donde se encuentra toda la información necesaria. No se usarán otros medios fuera de los mencionados para comunicarse."
+    }
+  ]
+}

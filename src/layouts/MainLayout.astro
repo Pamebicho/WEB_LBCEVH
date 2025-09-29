@@ -1,0 +1,85 @@
+---
+// Importar componentes necesarios
+import Meta from "@components/Meta.astro";
+import Navbar from "@components/sections/Navbar.astro";
+import FooterSection from "@components/sections/FooterSection.astro";
+import { SITE } from "@data/constants";
+import "@styles/global.css";
+import NavbarMegaMenu from "@/components/sections/NavbarMegaMenu.astro";
+
+// Configuración props esperados
+const {
+  title = SITE.title,
+  meta,
+  structuredData,
+  customDescription = null,
+  customOgTitle = null,
+} = Astro.props;
+
+// Interfaz para verificar las propiedades
+interface Props {
+  title?: string;
+  meta?: string;
+  structuredData?: object;
+  customDescription?: string | null;
+  customOgTitle?: string | null;
+}
+---
+
+<html lang="es" class="lenis lenis-smooth scroll-pt-16">
+  <head>
+    {/* Agregar metadatos al documento HTML */}
+    <Meta
+      meta={meta}
+      structuredData={structuredData}
+      customDescription={customDescription}
+      customOgTitle={customOgTitle}
+    />
+    {/* Definir el título de la página. */}
+    <title>{title}</title>
+    <script is:inline>
+      // Script para manejar el modo oscuro. Verificará si el tema está almacenado en el almacenamiento local o si la configuración del sistema prefiere el tema oscuro.
+      if (
+        localStorage.getItem("hs_theme") === "dark" ||
+        (!("hs_theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+    <script>
+      import "@scripts/lenisSmoothScroll.js";
+    </script>
+  </head>
+  <body
+    class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800 flex flex-col min-h-screen"
+  >
+    {/* Configurando la estructura principal de la página.
+    La barra de navegación está ubicada en la parte superior, con una ranura para el contenido principal y una sección de pie de página en la parte inferior.
+    */}
+    <div class="w-full mx-auto max-w-(--breakpoint-2xl) px-4 sm:px-6 lg:px-8 flex-grow">
+      <Navbar />
+      <main>
+        <slot />
+      </main>
+    </div>
+    <FooterSection />
+    <script>
+      // https://preline.co
+      import "preline/preline.js";
+    </script>
+    <style>
+      /* Reglas CSS para la barra de desplazamiento de la página */
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+---
+// Import the necessary dependencies.
+import AuthBtn from "@components/ui/buttons/AuthBtn.astro";
+import ContactIconBlock from "@components/ui/blocks/ContactIconBlock.astro";
+import TextInput from "@components/ui/forms/input/TextInput.astro";
+import EmailContactInput from "@components/ui/forms/input/EmailContactInput.astro";
+import PhoneInput from "@components/ui/forms/input/PhoneInput.astro";
+import TextAreaInput from "@components/ui/forms/input/TextAreaInput.astro";
+import Icon from "@components/ui/icons/Icon.astro";
+
+// Definir las variables que se utilizarán en este componente
+const title: string = "Contáctanos";
+const subTitle: string =
+  "¿Tienes dudas o quieres conversar con nosotros? Escríbenos.";
+const formTitle: string = "Completa el formulario";
+const formSubTitle: string = "Te responderemos en 1–2 días hábiles.";
+---
+
+<!-- Contáctanos -->
+<section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+  <div class="mx-auto max-w-2xl lg:max-w-5xl">    
+    <div class="text-center">
+      <h1
+        class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
+      >
+        {title}
+      </h1>
+      <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
+        {subTitle}
+      </p>
+    </div>
+
+    <div class="mt-12 grid items-center gap-6 lg:grid-cols-2 lg:gap-16">
+      <div class="flex flex-col rounded-xl p-4 sm:p-6 lg:p-8">
+        <h2
+          class="mb-8 text-xl font-bold text-neutral-700 dark:text-neutral-300"
+        >
+          {formTitle}
+        </h2>
+        <!-- Formulario para entrada del usuario con varios campos de entrada.-->
+        <!-- Cada campo utiliza un componente de entrada diferente para el tipo específico de entrada (texto, correo electrónico, teléfono y área de texto-->
+        <form>
+          <div class="grid gap-4">
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <TextInput
+                id="hs-firstname-contacts"
+                label="Nombre"
+                name="hs-firstname-contacts"
+              />
+              <TextInput
+                id="hs-lastname-contacts"
+                label="Apellidos"
+                name="hs-lastname-contacts"
+              />
+            </div>
+            <EmailContactInput id="hs-email-contacts" />
+            <PhoneInput id="hs-phone-number" />
+            <TextAreaInput
+              id="hs-about-contacts"
+              label="Mensaje"
+              name="hs-about-contacts"
+            />
+          </div>
+
+          <div class="mt-4 grid">
+            <AuthBtn title="Enviar mensaje" />
+          </div>
+
+          <div class="mt-3 text-center">
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+              {formSubTitle}
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <!--ContactIconBlocks are used to display different methods of contacting, including visiting office, email, browsing knowledgebase, and FAQ.-->
+      <div class="divide-y divide-neutral-300 dark:divide-neutral-700">
+        <ContactIconBlock
+          heading="Preguntas"
+          content="Explore nuestras preguntas frecuentes"
+          isLinkVisible={true}
+          linkTitle="Visita"
+          linkURL="/#faq"
+          isArrowVisible={true}
+          ><Icon name="chatBubble" />
+        </ContactIconBlock>
+
+        <ContactIconBlock
+          heading="Visitanos"
+          content="Valle Hermoso #1120, Peñalolén Alto."
+          isLinkVisible={true}
+          linkTitle="Ver mapa"
+          linkURL="https://maps.app.goo.gl/hVgP9zHxDMdrXA7J7"
+          target="_blank" 
+          rel="noopener noreferrer" 
+          isArrowVisible={true}
+          ><Icon name="mapPin" />
+        </ContactIconBlock>
+
+        <ContactIconBlock
+          heading="Contáctenos por correo electrónico"
+          content="¿Prefieres comunicarte por escrito? Escríbenos a"
+          isLinkVisible={true}
+          linkTitle="cevh@cormup.cl"
+          linkURL="#"
+          ><Icon name="envelopeOpen" />
+        </ContactIconBlock>
+
+        <ContactIconBlock
+          heading="Llámanos por teléfono"
+          content="¿Prefieres hablar directamente con nosotros? Contáctanos al"
+          isLinkVisible={true}
+          linkTitle="+56 (2) 2939 7840"
+          linkURL="tel:+56229397840"
+          ><Icon name="phone" />
+        </ContactIconBlock>
+
+      </div>
+    </div>
+  </div>
+</section>
