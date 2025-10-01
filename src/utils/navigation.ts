@@ -30,11 +30,11 @@ const footerLinks = [
 ];
 // Enlaces para íconos redes sociales.
 const socialLinks = {
-  facebook: "https://www.facebook.com/",
-  x: "https://twitter.com/",
-  github: "https://github.com/mearashadowfax/ScrewFast",
+  facebook: "https://www.facebook.com/LBCEVH/?locale=es_LA",
+  instagram: "https://www.instagram.com/liceobicentenariovallehermoso/",
+  youtube: "https://www.youtube.com/watch?v=rCqzvKLb75Q",
   google: "https://www.google.com/",
-  slack: "https://slack.com/",
+  whatsapp: "#",
 };
 
 export default {
