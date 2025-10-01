@@ -1,16 +1,21 @@
-# ScrewFast Monolingual
+# Portal Web Educativo – Liceo Bicentenario Centro Educacional Valle Hermoso  
 
-This branch is designed to deliver content in a single language, making it straightforward and focused on a specific audience. Most of the features from the main template are still here, except the internationalization (i18n).
+Este proyecto corresponde al desarrollo de un **sitio web informativo** para el Liceo Bicentenario Centro Educacional Valle Hermoso de Peñalolén.  
+El objetivo principal es **centralizar y modernizar la comunicación escolar**, entregando a estudiantes, apoderados, docentes y comunidad en general un acceso rápido y organizado a la información relevante del establecimiento.  
 
-### Deploying to Vercel
+## Características principales
+- Sitio web monolingüe en **español**.  
+- Estructura simple y adaptable a distintos dispositivos (responsive design).  
+- Secciones: Inicio, Sobre Nosotros, Proyecto Académico, Blog y Contáctanos.  
+- Integración de **TailwindCSS** para estilos modernos y ligeros.  
+- Desarrollado con **Astro**, HTML, CSS y JavaScript.  
 
-Click the button below to start deploying your project on Vercel:  
+## Despliegue en Vercel
+Haz clic en el botón para desplegar este proyecto en Vercel:  
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmearashadowfax%2FScrewFast%2Ftree%2Fmonolingual-site)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FPamebicho%2FWEB_LBCEVH)
 
-### Deploying to Netlify
+## Despliegue en Netlify
+Haz clic en el botón para desplegar este proyecto en Netlify:  
 
-Click the button below to start deploying your project on Netlify:  
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/mearashadowfax/ScrewFast/tree/monolingual-site)
-
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Pamebicho/WEB_LBCEVH)
