@@ -94,7 +94,7 @@ const articles: Article[] = [
 
 const pageTitle: string = `Quienes Somos | ${SITE.title}`;
 const metaDescription =
-  "Uniting expertise with your vision, ScrewFast provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.";
+  "Conoce la misión, visión y valores del Liceo Bicentenario Centro Educacional Valle Hermoso. Excelencia académica, comunidad y transformación digital al servicio de nuestros estudiantes.";
 const ogTitle = "Expert Consultation Services | ScrewFast";
 ---
 
@@ -127,8 +127,8 @@ const ogTitle = "Expert Consultation Services | ScrewFast";
     title="Uniting Expertise with Your Vision"
     subTitle="At ScrewFast, we take pride in providing comprehensive solutions and exceptional service in the hardware and construction industry. Our experienced team is dedicated to supporting your project from inception to completion with a range of specialized services."
     btnExists={true}
-    btnTitle="Schedule a Consultation"
-    btnURL="#"
+    btnTitle="Explora el Proyecto Educativo"
+    btnURL="/products"
   />
   {
     /* RightSection and LeftSection contain details about various services along with pertinent imagery.
@@ -165,27 +165,29 @@ const ogTitle = "Expert Consultation Services | ScrewFast";
           btnTitle={article.btnTitle}
           btnURL={article.btnURL}
         />
+
+          
       );
     })
   }
   {/* FeaturesStats section showcases essential stats valuable to users */}
   <FeaturesStats
-    title="By the Numbers"
-    subTitle="Our commitment to quality and reliability is evident in every project we undertake. At ScrewFast, we are dedicated to delivering industry-leading services that ensure your construction projects are built to last."
-    mainStatTitle="96%"
-    mainStatSubTitle="of our clients rate their experience with ScrewFast as exceptional"
+    title="Nuestra comunidad en cifras"
+    subTitle="Resultados que importan: aprendizaje, participación y mejora continua."
+    mainStatTitle="+1.000"
+    mainStatSubTitle="estudiantes y familias vinculadas a nuestra comunidad"
     stats={[
       {
-        stat: "99.8%",
-        description: "project completion rate",
+        stat: "95%",
+        description: "asistencia promedio anual (meta institucional)",
       },
       {
-        stat: "5,000+",
-        description: "successful installations",
+        stat: "30+",
+        description: "actividades formativas y extracurriculares por año",
       },
       {
-        stat: "85%",
-        description: "client growth year-over-year",
+        stat: "60+",
+        description: "docentes y asistentes comprometidos con la excelencia",
       },
     ]}
   />
