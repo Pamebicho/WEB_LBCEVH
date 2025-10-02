@@ -1,11 +1,13 @@
 ---
-import logo from "@images/logo-liceo.png";
-const { class: className = "" } = Astro.props;
+// src/components/BrandLogo.astro
+import logo from "../images/logo-liceo.png"; // ← relativo, sin alias
+interface Props { class?: string }
+const { class: className = "" } = Astro.props as Props;
 ---
 
 <img
-  src={logo.src}
-  width={logo.width}
+  src={logo.src}         
+  width={logo.width} 
   height={logo.height}
   alt="Liceo Bicentenario Valle Hermoso - Logo"
   class={className}
