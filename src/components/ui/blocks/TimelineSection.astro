@@ -1,0 +1,168 @@
+---
+import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
+
+interface TimelineItem {
+  year: string;
+  title: string;
+  description: string;
+}
+interface Props {
+  title?: string;
+  subTitle?: string;
+  items: TimelineItem[];
+  initialVisible?: number;
+  moreLabel?: string;
+  lessLabel?: string;
+  imageSrc?: any;
+  imageAlt?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  id?: string;
+}
+
+const {
+  title = "Nuestra Historia",
+  subTitle = "",
+  items = [],
+  initialVisible = 5,
+  moreLabel = "Ver Más Hitos",
+  lessLabel = "Ver Menos",
+  imageSrc,
+  imageAlt = "Historia del Liceo",
+  ctaText,
+  ctaHref,
+  id,
+} = Astro.props;
+
+const first = items.slice(0, initialVisible);
+const rest  = items.slice(initialVisible);
+---
+
+<section id={id} class="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8" data-timeline>
+  <div class="mx-auto mb-10 max-w-3xl text-center">
+    <h2 class="mb-4 text-balance text-4xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200">
+      {title}
+    </h2>
+
+    {subTitle && (
+      <p class="mt-3 text-lg text-gray-600 dark:text-gray-300">
+        {subTitle}
+      </p>
+    )}
+
+    {imageSrc && (
+      <div class="mt-6 flex justify-center">
+        <img
+          src={imageSrc}
+          alt={imageAlt}
+          class="rounded-xl shadow-lg max-h-72 object-cover"
+          loading="lazy"
+        />
+      </div>
+    )}
+  </div>
+
+  {/* Línea vertical azul */}
+  <ol class="relative border-s-2 border-[#0036B3] dark:border-[#0036B3]/80">
+    {/* Hitos visibles */}
+    {
+      first.map((it) => (
+        <li class="group mb-12 ms-10 relative transition-transform duration-300 hover:scale-105 motion-reduce:transform-none motion-reduce:transition-none">
+          <span
+            class="absolute -start-[50px] flex h-10 w-10 items-center justify-center rounded-full bg-[#0036B3] text-white ring-4 ring-[#0036B3] text-sm font-bold transition-transform duration-300 group-hover:scale-110 motion-reduce:transform-none"
+          >
+            {it.year}
+          </span>
+
+          {/* Contenedor redondeado */}
+          <div
+            class="rounded-2xl border border-gray-400 bg-[#FAFAFA] p-4 shadow-sm transition-shadow duration-300 hover:shadow-lg dark:border-gray-600 dark:bg-white/[.075]"
+          >
+            <h3 class="text-balance text-lg font-bold text-neutral-800 dark:text-neutral-200">
+              {it.title}
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300">{it.description}</p>
+          </div>
+        </li>
+      ))
+    }
+
+    {/* Hitos ocultos inicialmente */}
+    {
+      rest.map((it) => (
+        <li class="rest-item hidden group mb-12 ms-10 relative transition-transform duration-300 hover:scale-105 motion-reduce:transform-none motion-reduce:transition-none">
+          <span
+            class="absolute -start-[50px] flex h-10 w-10 items-center justify-center rounded-full bg-[#0036B3] text-white ring-4 ring-[#0036B3] text-sm font-bold transition-transform duration-300 group-hover:scale-110 motion-reduce:transform-none"
+          >
+            {it.year}
+          </span>
+
+          {/* Contenedor redondeado */}
+          <div
+            class="rounded-2xl border border-gray-400 bg-[#FAFAFA] p-4 shadow-sm transition-shadow duration-300 hover:shadow-lg dark:border-gray-600 dark:bg-white/[.075]"
+          >
+            <h3 class="mb-1 text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-300 group-hover:text-[#0036B3]">
+              {it.title}
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300">{it.description}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+
+  {/* Botón Ver más / Ver menos */}
+  {rest.length > 0 && (
+    <div class="mt-8 text-center" data-more={moreLabel} data-less={lessLabel}>
+      <PrimaryCTA
+        title={moreLabel}
+        url="#"
+        id="timelineToggleBtn"
+        noArrow={true}
+      />
+    </div>
+  )}
+
+  {/* CTA opcional */}
+  {ctaText && ctaHref && (
+    <div class="mt-6 text-center">
+      <a
+        href={ctaHref}
+        class="inline-flex items-center rounded-xl px-4 py-2 text-sm font-semibold ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:ring-gray-700 dark:hover:bg-gray-800"
+      >
+        {ctaText}
+      </a>
+    </div>
+  )}
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-timeline]').forEach((section) => {
+      const btn  = section.querySelector('#timelineToggleBtn');
+      const wrap = btn ? btn.parentElement : null;
+      const items = section.querySelectorAll('.rest-item');
+      if (!btn || !wrap || !items.length) return;
+
+      const more = wrap.getAttribute('data-more') || 'Ver Más Hitos';
+      const less = wrap.getAttribute('data-less') || 'Ver Menos';
+      const textEl = btn.querySelector('.cta-text');
+
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        if (expanded) {
+          items.forEach(el => el.classList.add('hidden'));
+          btn.setAttribute('aria-expanded', 'false');
+          if (textEl) textEl.textContent = more;   // ← usa tu constante
+        } else {
+          items.forEach(el => el.classList.remove('hidden'));
+          btn.setAttribute('aria-expanded', 'true');
+          if (textEl) textEl.textContent = less;   // ← usa tu constante
+        }
+      });
+    });
+  });
+</script>
+
+

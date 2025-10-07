@@ -1,10 +1,10 @@
 // Una serie de enlaces para la barra de navegación.
 const navBarLinks = [
   { name: "Inicio", url: "/" },
-  { name: "Quienes Somos", url: "/services" },
+  { name: "Quienes Somos", url: "/quienes-somos" },
   { name: "Proyecto Académico", url: "/products" },
   { name: "Noticias", url: "/blog" },
-  { name: "Contacto", url: "/contact" },
+  { name: "Contacto", url: "/contacto" },
 ];
 // Una serie de enlaces para el pie de página
 const footerLinks = [
