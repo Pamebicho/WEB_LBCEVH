@@ -21,7 +21,7 @@ const footerLinks = [
   {
     section: "Institución",
     links: [
-      { name: "Quienes Somos", url: "/services" },
+      { name: "Quienes Somos", url: "/quienes-somos" },
       { name: "Noticias", url: "/blog" },
       { name: "Careers", url: "#" },
       { name: "Customers", url: "#" },

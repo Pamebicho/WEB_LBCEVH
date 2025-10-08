@@ -2,7 +2,6 @@
 //Import relevant dependencies
 import ThemeIcon from "@components/ThemeIcon.astro";
 import NavLink from "@components/ui/links/NavLink.astro";
-import Authentication from "./Authentication.astro";
 import strings from "@utils/navigation.ts";
 import BrandLogo from "@components/BrandLogo.astro";
 ---
@@ -86,10 +85,8 @@ import BrandLogo from "@components/BrandLogo.astro";
           ))
         }
 
-        <Authentication />
-
         <!-- ThemeIcon component specifically for larger screens -->
-        <span class="hidden md:inline-block">
+        <span class="hidden md:inline-block md:my-6 md:border-s md:border-neutral-300 md:ps-6">
           <ThemeIcon />
         </span>
       </div>
