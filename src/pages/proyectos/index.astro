@@ -1,0 +1,144 @@
+---
+// Importing necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
+import CardSmall from "@components/ui/cards/CardSmall.astro";
+import CardWide from "@components/ui/cards/CardWide.astro";
+import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
+import TestimonialsSectionAlt from "@components/sections/testimonials/TestimonialsSectionAlt.astro";
+
+// Importando funciones necesarias desde Astro
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { SITE } from "@data/constants.ts";
+
+// Obteniendo todo el contenido relacionado con el producto y clasificándolo por main.id
+const product: CollectionEntry<"proyectos">[] = (
+  await getCollection("proyectos")
+).sort(
+  (a: CollectionEntry<"proyectos">, b: CollectionEntry<"proyectos">) =>
+    a.data.main.id - b.data.main.id
+);
+
+// Definir variables para el contenido de la página.
+const title: string = "Trayectoria";
+const subTitle: string =
+  "Desde los primeros pasos hasta a la especialidad técnica, un camino de aprendizaje y valores.";
+
+// Datos testimoniales institucionales
+const testimonials = [
+  {
+    content:
+      "“Ser Liceo Bicentenario implica altas expectativas y acompañamiento real. Nuestro foco es que cada estudiante encuentre oportunidades de aprendizaje significativo y apoyo oportuno cuando lo necesita.”",
+    author: "Osvaldo Sepúlveda",
+    role: "Director",
+    avatarSrc:
+      "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=320&h=320&fit=facearea&facepad=2&auto=format",
+    avatarAlt: "Retrato institucional del Director",
+  },
+  {
+    content:
+      "“Desde la dupla psicosocial trabajamos prevención, contención y derivación. Cuando el bienestar mejora, el aprendizaje despega.”",
+    author: "M.R.",
+    role: "Psicólogo",
+    avatarSrc:
+      "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=320&h=320&fit=facearea&facepad=2&auto=format",
+    avatarAlt: "Retrato de la Psicóloga de la dupla",
+  },
+  {
+    content:
+      "“Las orientaciones inclusivas nos han ordenado el trabajo: rúbricas claras, evaluaciones diferenciadas y retroalimentación formativa.”",
+    author: "J.M.",
+    role: "Docente EM-TP",
+    avatarSrc:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=320&h=320&fit=facearea&facepad=2&auto=format",
+    avatarAlt: "Retrato de docente jefe",
+  },
+];
+
+
+const pageTitle: string = `proyecto | ${SITE.title}`;
+const metaDescription =
+  "Conoce nuestro Proyecto Académico: Parvularia, Básica, EMTP (Administración y Construcción), Biblioteca CRA y el sello Bicentenario.";
+const ogTitle = "Proyecto Académico | LBCEVH";
+---
+
+<MainLayout
+  title={pageTitle}
+  customDescription={metaDescription}
+  customOgTitle={ogTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "/proyecto",
+    url: "/proyecto",
+    name: "Proyecto Académico | LBCEVH",
+    description:
+      "Proyecto Académico del Liceo Bicentenario C.E. Valle Hermoso: Parvularia, Básica, EMTP (Administración y Construcción), Biblioteca CRA y sello Bicentenario.",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "/",
+      name: "Proyecto Académico | LBCEVH",
+      description:
+        "Proyecto Académico del Liceo Bicentenario C.E. Valle Hermoso: Parvularia, Básica, EMTP (Administración y Construcción), Biblioteca CRA y sello Bicentenario.",
+    },
+    inLanguage: "es-CL",
+  }}
+>
+  <div
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
+      <div class="flex items-center gap-12">
+        <h1
+          class="text-2xl font-bold tracking-tight text-balance text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200"
+        >
+          {title}
+        </h1>
+        {
+          subTitle && (
+            <p class="hidden max-w-(--breakpoint-sm) text-pretty text-neutral-600 md:block dark:text-neutral-400">
+              {subTitle}
+            </p>
+          )
+        }
+      </div>
+      <PrimaryCTA title="Voces del Liceo" url="#testimonials" noArrow={true} />
+    </div>
+    {
+      /* Displaying products in alternating styles. Alternative product gets different card styling. */
+    }
+    {
+      /* Maps through all product entries and displays them with either CardSmall or CardWide based on their position. */
+    }
+    <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+      {
+        product.map((proyecto, index) => {
+          const position = index % 4;
+          if (position === 0 || position === 3) {
+            return <CardSmall proyecto={proyecto} />;
+          } else {
+            return <CardWide proyecto={proyecto} />;
+          }
+        })
+      }
+    </section>
+  </div>
+  {/* Sección de estadísticas de características */}
+  <FeaturesStatsAlt
+    title="Inclusión y Apoyos (PIE / Dupla Psicosocial)"
+    subTitle="Acompañamos trayectorias educativas diversas con apoyos oportunos, trabajo colaborativo y foco en el bienestar socioemocional."
+    benefits={[
+      "Detección temprana y derivación oportuna (NEAE / NEE).",
+      "Plan de Apoyo Individual (PAI) co-diseñado con docentes y familia.",
+      "Adaptaciones curriculares y DUA en aula (co-docencia / co-enseñanza).",
+      "Atención psicosocial por dupla (psicología / trabajo social).",
+      "Articulación con redes externas (CESFAM, OPD, SENDA, DEM).",
+    ]}
+  />
+  {/* Testimonials section */}
+  <TestimonialsSectionAlt
+    title="Lo que dice nuestra comunidad"
+    testimonials={testimonials}
+  />
+</MainLayout>

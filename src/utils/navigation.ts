@@ -2,8 +2,8 @@
 const navBarLinks = [
   { name: "Inicio", url: "/" },
   { name: "Quienes Somos", url: "/quienes-somos" },
-  { name: "Proyecto Académico", url: "/products" },
-  { name: "Noticias", url: "/blog" },
+  { name: "Proyecto Académico", url: "/proyectos" },
+  { name: "Noticias", url: "#" },
   { name: "Contacto", url: "/contacto" },
 ];
 // Una serie de enlaces para el pie de página
@@ -11,7 +11,6 @@ const footerLinks = [
   {
     section: "Enlaces de Interés",
     links: [
-      { name: "Documentation", url: "/welcome-to-docs/" },
       { name: "Ministerio de Educación", url: "https://www.mineduc.cl/" },
       { name: "Admisión Escolar", url: "https://www.sistemadeadmisionescolar.cl/index.html" },
       { name: "Municipalidad de Peñalolen", url: "https://www.penalolen.cl/" },
@@ -23,8 +22,8 @@ const footerLinks = [
     links: [
       { name: "Quienes Somos", url: "/quienes-somos" },
       { name: "Noticias", url: "/blog" },
-      { name: "Careers", url: "#" },
-      { name: "Customers", url: "#" },
+      { name: "123456", url: "#" },
+      { name: "Documentos", url: "#" }, ///welcome-to-docs/
     ],
   },
 ];

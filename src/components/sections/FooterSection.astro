@@ -7,7 +7,7 @@ import Icon from "@components/ui/icons/Icon.astro";
 import BrandLogo from "@components/BrandLogo.astro";
 import { SITE } from "@data/constants";
 
-// Define the variables that will be used in this component
+// Definir las variables que se utilizarán en este componente.
 const sectionThreeTitle: string = "Mantente informado";
 const sectionThreeContent: string = "Recibe noticias, actividades y comunicados del Liceo. Nunca compartiremos tu correo con terceros.";
 const crafted: string = "Desarrollado por";
@@ -19,10 +19,10 @@ const crafted: string = "Desarrollado por";
   >
     <div class="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5">
       <div class="col-span-full lg:col-span-1">
-        <!-- Brand Logo -->
+        <!-- Logo -->
         <BrandLogo class="h-auto w-32" />
       </div>
-      <!-- An array of links for Product and Company sections -->
+      <!-- Una serie de enlaces para las secciones Producto y Empresa. -->
       {
         strings.footerLinks.map((section) => (
           <div class="col-span-1">
@@ -34,15 +34,10 @@ const crafted: string = "Desarrollado por";
                 <li>
                   <a
                     href={link.url}
-                    class="inline-flex gap-x-2 rounded-lg text-neutral-600 outline-hidden ring-zinc-500 transition duration-300 hover:text-neutral-500 focus-visible:ring-3 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-neutral-300 dark:focus:outline-hidden"
+                    class="inline-flex gap-x-2 rounded-lg text-neutral-600 outline-hidden ring-zinc-500 transition duration-300 hover:text-[#0036B3] focus-visible:ring-3 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-neutral-300 dark:focus:outline-hidden"
                   >
                     {link.name}
                   </a>
-                  {section.section === "Company" && index === 2 ? (
-                    <span class="ms-1 inline rounded-lg bg-orange-500 px-2 py-1 text-xs font-bold text-neutral-50">
-                      We're hiring!
-                    </span>
-                  ) : null}
                 </li>
               ))}
             </ul>
@@ -72,7 +67,7 @@ const crafted: string = "Desarrollado por";
           © <span id="current-year"></span> {SITE.title}. {crafted}
           <a
             class="rounded-lg font-medium underline underline-offset-2 outline-hidden ring-zinc-500 transition duration-300 hover:text-neutral-700 hover:decoration-dashed focus:outline-hidden focus-visible:ring-3 dark:ring-zinc-200 dark:hover:text-neutral-300"
-            href="https://sobstvennoai.dev"
+            href="https://Pame.dev"
             target="_blank"
             rel="noopener noreferrer">Pame ❤️</a
           >.

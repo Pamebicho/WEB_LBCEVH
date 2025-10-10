@@ -50,21 +50,21 @@ export const partnersData = [
   href: "https://www.mineduc.cl",
 },
 {
-  icon: `<img src="${logoSAE.src}" alt="Ministerio de Educación"
+  icon: `<img src="${logoSAE.src}" alt="Sistema de Admisión Escolar"
     class="mx-auto h-auto w-10 py-1 sm:mx-0 lg:w-28 lg:py-3" />`,
-  name: "Ministerio de Educación",
+  name: "Sistema de Admisión Escolar",
   href: "https://www.sistemadeadmisionescolar.cl/index.html",
 },
 {
-  icon: `<img src="${logoCormup.src}" alt="Ministerio de Educación"
+  icon: `<img src="${logoCormup.src}" alt="Municipalidad de Peñalolen"
     class="mx-auto h-auto w-10 py-1 sm:mx-0 lg:w-28 lg:py-1" />`,
-  name: "Ministerio de Educación",
+  name: "Municipalidad de Peñalolen",
   href: "https://www.penalolen.cl/",
 },
 {
-  icon: `<img src="${logoREDUCA.src}" alt="Ministerio de Educación"
+  icon: `<img src="${logoREDUCA.src}" alt="REDUCA"
     class="mx-auto h-auto w-10 py-1 sm:mx-0 lg:w-28 lg:py-1" />`,
-  name: "Ministerio de Educación",
+  name: "REDUCA",
   href: "http://www.reduca.cl/",
 },
 ]

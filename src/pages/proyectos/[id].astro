@@ -15,20 +15,20 @@ declare global {
 }
 // This gets the static paths for all the unique products
 export async function getStaticPaths() {
-  const productEntries = await getCollection("products");
-  return productEntries.map((product) => ({
-    params: { id: product.id },
-    props: { product },
+  const proyectoEntries = await getCollection("proyectos");
+  return proyectoEntries.map((proyecto) => ({
+    params: { id: proyecto.id },
+    props: { proyecto },
   }));
 }
 
-const { product } = Astro.props;
+const { proyecto } = Astro.props;
 
-const pageTitle: string = `${product.data.title} | ${SITE.title}`;
+const pageTitle: string = `${proyecto.data.title} | ${SITE.title}`;
 const metaDescription =
-  product.data.description ||
-  `${product.data.title} - Precision-engineered hardware tools from ScrewFast, built to last for professional and enthusiast builders alike.`;
-const ogTitle = `${product.data.title} | ScrewFast Hardware`;
+  proyecto.data.description ||
+  `${proyecto.data.title} - Precision-engineered hardware tools from ScrewFast, built to last for professional and enthusiast builders alike.`;
+const ogTitle = `${proyecto.data.title} | ScrewFast Hardware`;
 ---
 
 <MainLayout
@@ -37,12 +37,12 @@ const ogTitle = `${product.data.title} | ScrewFast Hardware`;
   customOgTitle={ogTitle}
   structuredData={{
     "@context": "https://schema.org",
-    "@type": "Product",
-    "@id": `https://screwfast.uk/products/${product.id}`,
-    name: product.data.title,
+    "@type": "Proyecto",
+    "@id": `https://screwfast.uk/proyectos/${proyecto.id}`,
+    name: proyecto.data.title,
     description: metaDescription,
-    image: product.data.main.imgMain.src,
-    url: `https://screwfast.uk/products/${product.id}`,
+    image: proyecto.data.main.imgMain.src,
+    url: `https://screwfast.uk/proyectos/${proyecto.id}`,
     brand: {
       "@type": "Brand",
       name: "ScrewFast",
@@ -57,7 +57,7 @@ const ogTitle = `${product.data.title} | ScrewFast Hardware`;
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://screwfast.uk/products/${product.id}`,
+      "@id": `https://screwfast.uk/products/${proyecto.id}`,
     },
     inLanguage: "en-US",
   }}
@@ -73,7 +73,7 @@ const ogTitle = `${product.data.title} | ScrewFast Hardware`;
         id="fadeText"
         class="mb-8 max-w-prose font-light text-pretty text-neutral-700 sm:text-xl dark:text-neutral-300"
       >
-        {product.data.main.content}
+        {proyecto.data.main.content}
       </p>
     </div>
     <div
@@ -83,18 +83,18 @@ const ogTitle = `${product.data.title} | ScrewFast Hardware`;
         <h1
           class="block text-4xl font-bold tracking-tighter text-neutral-800 sm:text-5xl md:text-6xl lg:text-7xl dark:text-neutral-200"
         >
-          {product.data.title}
+          {proyecto.data.title}
         </h1>
         <p class="text-lg text-neutral-600 dark:text-neutral-400">
-          {product.data.description}
+          {proyecto.data.description}
         </p>
       </div>
       <div>
         <Image
           id="fadeInMoveRight"
-          src={product.data.main.imgMain}
+          src={proyecto.data.main.imgMain}
           class="w-[600px]"
-          alt={product.data.main.imgAlt}
+          alt={proyecto.data.main.imgAlt}
           format={"avif"}
           loading={"eager"}
         />
@@ -109,7 +109,7 @@ const ogTitle = `${product.data.title} | ScrewFast Hardware`;
       role="tablist"
     >
       {
-        product.data.tabs.map((tab, index) => (
+        proyecto.data.tabs.map((tab, index) => (
           <ProductTabBtn
             title={tab.title}
             id={tab.id}
@@ -128,24 +128,24 @@ const ogTitle = `${product.data.title} | ScrewFast Hardware`;
               <h2
                 class="text-3xl font-bold tracking-tight text-balance text-neutral-800 md:leading-tight lg:text-4xl dark:text-neutral-200"
               >
-                {product.data.longDescription.title}
+                {proyecto.data.longDescription.title}
               </h2>
               <p
                 class="mt-3 text-pretty text-neutral-600 dark:text-neutral-400"
               >
-                {product.data.longDescription.subTitle}
+                {proyecto.data.longDescription.subTitle}
               </p>
               <p class="mt-5">
                 <PrimaryCTA
-                  title={product.data.longDescription.btnTitle}
-                  url={product.data.longDescription.btnURL}
+                  title={proyecto.data.longDescription.btnTitle}
+                  url={proyecto.data.longDescription.btnURL}
                 />
               </p>
             </div>
 
             <div class="space-y-6 lg:space-y-10">
               {
-                product.data.descriptionList.map((list) => (
+                proyecto.data.descriptionList.map((list) => (
                   <div class="flex">
                     <div>
                       <h3 class="text-base font-bold text-neutral-800 sm:text-lg dark:text-neutral-200">
@@ -168,7 +168,7 @@ const ogTitle = `${product.data.title} | ScrewFast Hardware`;
           <div class="grid w-full grid-cols-1 gap-x-16 md:grid-cols-2">
             <div class="max-w-md space-y-6">
               {
-                product.data.specificationsLeft.map((spec) => (
+                proyecto.data.specificationsLeft.map((spec) => (
                   <div>
                     <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">
                       {spec.title}
@@ -182,7 +182,7 @@ const ogTitle = `${product.data.title} | ScrewFast Hardware`;
             </div>
             <div class="mt-6 max-w-md space-y-6 md:mt-0 md:ml-auto">
               {
-                product.data.specificationsRight?.map((spec) => (
+                proyecto.data.specificationsRight?.map((spec) => (
                   <div>
                     <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">
                       {spec.title}
@@ -206,9 +206,9 @@ const ogTitle = `${product.data.title} | ScrewFast Hardware`;
         class="relative top-12 left-12 z-10 overflow-hidden rounded-xl shadow-lg md:top-16 md:left-12 md:-ml-12 lg:ml-0"
       >
         {
-          product.data.blueprints.first && (
+          proyecto.data.blueprints.first && (
             <Image
-              src={product.data.blueprints.first}
+              src={proyecto.data.blueprints.first}
               class="h-full w-full object-cover object-center"
               alt="Blueprint Illustration"
               format={"avif"}
@@ -219,9 +219,9 @@ const ogTitle = `${product.data.title} | ScrewFast Hardware`;
 
       <div class="relative right-12 overflow-hidden rounded-xl shadow-xl">
         {
-          product.data.blueprints.second && (
+          proyecto.data.blueprints.second && (
             <Image
-              src={product.data.blueprints.second}
+              src={proyecto.data.blueprints.second}
               class="h-full w-full object-cover object-center"
               alt="Blueprint Illustration"
               format={"avif"}
