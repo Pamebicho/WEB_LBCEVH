@@ -1,15 +1,15 @@
 ---
-// Destructure the properties from Astro.props
+// Estructura las propiedades de Astro.props
 const { id, dataTab, title, first } = Astro.props;
 
-// Define TypeScript interface for the properties
+// Definir la interfaz TypeScript para las propiedades
 interface Props {
   id: string;
   dataTab: string;
   title: string;
   first?: boolean;
 }
-// Define constants for styling classes
+// Definir constantes para clases de estilo.
 const BUTTON_CLASS =
   "flex w-full justify-center rounded-xl border border-transparent p-3 outline-hidden ring-zinc-500 transition duration-300 hover:bg-neutral-100 focus-visible:ring-3 dark:ring-zinc-200 dark:hover:bg-neutral-700 dark:focus:outline-hidden md:p-5";
 
@@ -17,7 +17,7 @@ const HEADING_CLASS = "block text-center font-bold";
 const INACTIVE_HEADING_CLASS = "text-neutral-800 dark:text-neutral-200";
 ---
 
-<!-- Tab button element -->
+<!-- Elemento de botón de pestaña pame -->
 <button
   type="button"
   class={`${BUTTON_CLASS} ${first ? "active bg-neutral-100 hover:border-transparent dark:bg-white/[.05]" : ""}`}
@@ -25,9 +25,9 @@ const INACTIVE_HEADING_CLASS = "text-neutral-800 dark:text-neutral-200";
   data-target={dataTab}
   role="tab"
 >
-  <!-- Tab text -->
+  <!-- Texto de pestaña -->
   <span
-    class={`${HEADING_CLASS} ${first ? "text-orange-400 dark:text-orange-300" : INACTIVE_HEADING_CLASS}`}
+    class={`${HEADING_CLASS} ${first ? "text-shadow-brand-600 dark:text-shadow-brand-600" : INACTIVE_HEADING_CLASS}`}
   >
     {title}
   </span>
